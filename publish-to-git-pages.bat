@@ -4,10 +4,10 @@ setlocal enabledelayedexpansion
 REM === Configuration ===
 set OUTPUT_DIR=publish
 set FINAL_DIR=docs
-set BASE_HREF=/Irisha-blazor-wasm/
+set BASE_HREF=/portal/
 
 REM === Generate version timestamp ===
-ffor /f "tokens=1-3 delims=/- " %%a in ("%date%") do (
+for /f "tokens=1-3 delims=/- " %%a in ("%date%") do (
     set DD=%%a
     set MM=%%b
     set YYYY=%%c
