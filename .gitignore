@@ -1,0 +1,57 @@
+# build artifacts
+bin/
+obj/
+publish/
+*.exe
+*.dll
+*.pdb
+
+# user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Visual Studio
+.vs/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Logs
+*.log
+
+# Others
+*.db
+*.cache
+*.pid
+*.swp
+
+# npm / yarn
+node_modules/
+
+# temp files
+*.tmp
+*.bak
+*.old
+
+# OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Test results
+TestResults/
+*.trx
+
+# JetBrains Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+*.sln.iml
