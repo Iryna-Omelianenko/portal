@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Irisha",
   "resources": {
-    "hash": "sha256-I/7DWt5HaRgVrI2QlHQuff2Zri6ETd00/bK9sSnKjzs=",
+    "hash": "sha256-Bm1auJ+B+AeZEUXdphnOhd+G1YdR82tfn5gz9T1QoBc=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.38cwt6g38v.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Irisha.wasm": "sha256-7QqMobVSQKG2XBzTAQR+gKsZYDFL6EeR6rXkRRSruZA=",
+      "Irisha.wasm": "sha256-U8uvgpCd/pKG6NMPHo6ZaGDLIw+tH7OSjg10F3VMb4U=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-lTcTyk5dAFJ5guWhE2fE8VgIOxlXlJZejBKJoqXSf3Q=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-nbNEoOWGWA9eGfEFt/KxzT+QvjtGy/EM8l3Ay9b78D4=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-Q4gQS+wAI/o1p0ABACPX+vUj06GrNg33CWKIBqv9S0w=",
