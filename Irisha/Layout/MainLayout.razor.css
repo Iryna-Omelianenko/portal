@@ -35,7 +35,7 @@ header {
         text-overflow: ellipsis;
     }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
     .top-row {
         justify-content: space-between;
     }
@@ -45,7 +45,7 @@ header {
         }
 }
 
-@media (min-width: 969px) {
+@media (min-width: 769px) {
     .page {
         flex-direction: row;
     }
