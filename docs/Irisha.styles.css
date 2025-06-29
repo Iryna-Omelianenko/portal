@@ -6,10 +6,22 @@
 
 main[b-89e95tidmj] {
     flex: 1;
+    /*margin-top: 60px;*/ /* если высота меню 60px */
+    /*height: calc(100vh - 60px);
+    overflow-y: auto;*/ /* вертикальная прокрутка именно в контенте */
+    /* Скрыть полосу прокрутки для разных браузеров */
+    /*scrollbar-width: none;*/ /* Firefox */
+    /*-ms-overflow-style: none;*/ /* IE 10+ */
 }
 
 header[b-89e95tidmj] {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* чтобы было поверх всего */
+    /*height: 80px;*/
 }
 
 .top-row[b-89e95tidmj] {
@@ -142,7 +154,14 @@ header[b-89e95tidmj] {
     background-color: rgba(255,255,255,0.1);
     color: white;
 }
-
+.mobile-menu[b-fqtycvu2j8] {
+    /*z-index: 1001;
+    overflow-y: auto;
+    position: fixed;*/ /* или absolute, если внутри header */
+    /*top: 60px;
+    left: 0;
+    right: 0;*/
+}
 @media (min-width: 769px) {
     .navbar-toggler[b-fqtycvu2j8] {
         display: none;

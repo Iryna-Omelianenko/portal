@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Irisha",
   "resources": {
-    "hash": "sha256-FCpDZwjpLF3wnI3WwCEKh7IA2i347cfT1e94nU1hACs=",
+    "hash": "sha256-lVvRO854zfdq272zTqevykFaTIh+7pou8QMZdHH3BuA=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.38cwt6g38v.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -17,9 +17,9 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Irisha.wasm": "sha256-U+oR66Rb+vBse9mKSPuSZ80EM/ZpAVWtDN46P+IQYoo=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-lTcTyk5dAFJ5guWhE2fE8VgIOxlXlJZejBKJoqXSf3Q=",
-      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-nbNEoOWGWA9eGfEFt/KxzT+QvjtGy/EM8l3Ay9b78D4=",
+      "Irisha.wasm": "sha256-0cTO2YqwCBbW/PMCznbW997IfT+vWWcCdnUtaQXdQxU=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-LKrtkprljjPdNEmLuhvmkVaCzD/YrKImeSVMoVM68A0=",
+      "Microsoft.AspNetCore.Components.Web.wasm": "sha256-spyk6aOlBqGuXrgkag654fMJljJemLYToKEcwC5Nvgo=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-Q4gQS+wAI/o1p0ABACPX+vUj06GrNg33CWKIBqv9S0w=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-87sn2TYqgdZ95sXmavjKEzoEfMgHnYQ9LOvnMX+aZcI=",
       "Microsoft.Extensions.Configuration.Json.wasm": "sha256-Sxmy2ZS134URxbHEvdbS6NcQ3zXS7UWx/5ZPpwiW7FA=",
@@ -43,7 +43,7 @@
       "System.Net.Http.wasm": "sha256-n1cYCAyFoWZS8wr1yI5Z90q9bp9dU85yc8NA/5GdJ1o=",
       "System.Net.Primitives.wasm": "sha256-j3A7SN1Wpd95yFTPPq1YD+PxIDYicARL6W3t8sMPhFI=",
       "System.Private.CoreLib.wasm": "sha256-oUuGvyfSCPhrg4gtgHbl8i1pIMa+Y/y0dkmuTUtn76U=",
-      "System.Private.Uri.wasm": "sha256-/WzoM+sIIQnuTmpLR97GBUG215uFoyNd8VbfFAbavPE=",
+      "System.Private.Uri.wasm": "sha256-CfQMrEX3TS1+yFeShuhMp1/ItLPwxGUBZH5QseqFQzo=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-rXNWJxdH8tME4a+ZYwP7wellel8Xp4lVPsbIQmC+ImE=",
       "System.Runtime.wasm": "sha256-l8l0N1uxwE+ucW6abB6zybYv8OrumxICPC2iIpNIH1E=",
       "System.Text.Encodings.Web.wasm": "sha256-MCv+5sGwYGikJ8D76raGF6L+02exyJcFgx2sVlUjmKk=",
