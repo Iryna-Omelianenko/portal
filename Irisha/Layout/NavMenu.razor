@@ -28,7 +28,14 @@
                 </NavLink>
             </nav>
         </div>
-
+        <!-- Вертикальное меню — для мобильных -->
+        <div class="@NavMenuCssClass mobile-menu d-md-none">
+            <nav class="navbar-nav flex-column">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All" @onclick="CloseMenu">Home</NavLink>
+                <NavLink class="nav-link" href="counter" @onclick="CloseMenu">Counter</NavLink>
+                <NavLink class="nav-link" href="weather" @onclick="CloseMenu">Weather</NavLink>
+            </nav>
+        </div>
         <!-- Правая часть: пока пустая -->
         <div class="d-none d-md-block" style="width: 40px;"></div>
     </div>
@@ -71,5 +78,10 @@
     public void Dispose()
     {
         objRef?.Dispose();
+    }
+
+    private void CloseMenu()
+    {
+        collapseNavMenu = true;
     }
 }
