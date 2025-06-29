@@ -1,39 +1,75 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Irisha</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿@inject IJSRuntime JS
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
+<div class="navbar navbar-expand-md navbar-dark px-4">
+    <div class="container-fluid d-flex align-items-center justify-content-between w-100">
+
+        <!-- Мобильная версия: кнопка + имя -->
+        <div class="d-flex align-items-center d-md-none ">
+            <button class="navbar-toggler me-2" type="button" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand m-0 px-2" href="">Iryna Omelianenko</a>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
+
+        <!-- Десктопная версия: только имя -->
+        <a class="navbar-brand d-none d-md-block m-0" href="">Iryna Omelianenko</a>
+
+        <!-- Центр: пункты меню -->
+        <div class="main-menu position-absolute start-50 translate-middle-x d-none d-md-block">
+            <nav class="navbar-nav flex-row">
+                <NavLink class="nav-link px-2" href="" Match="NavLinkMatch.All">
+                    <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
+                </NavLink>
+                <NavLink class="nav-link px-2" href="counter">
+                    <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
+                </NavLink>
+                <NavLink class="nav-link px-2" href="weather">
+                    <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
+                </NavLink>
+            </nav>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
+
+        <!-- Правая часть: пока пустая -->
+        <div class="d-none d-md-block" style="width: 40px;"></div>
+    </div>
 </div>
 
 @code {
     private bool collapseNavMenu = true;
+    private bool isMobile = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private DotNetObjectReference<NavMenu>? objRef;
 
-    private void ToggleNavMenu()
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse navbar-collapse" : "navbar-collapse show";
+
+    private void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (firstRender)
+        {
+            objRef = DotNetObjectReference.Create(this);
+            await JS.InvokeVoidAsync("registerResizeHandler", objRef);
+            await CheckScreenSizeAsync();
+            StateHasChanged();
+        }
+    }
+
+    [JSInvokable]
+    public async Task UpdateLayout()
+    {
+        await CheckScreenSizeAsync();
+        StateHasChanged();
+    }
+
+    private async Task CheckScreenSizeAsync()
+    {
+        var width = await JS.InvokeAsync<int>("getWindowWidth");
+        isMobile = width < 969;
+    }
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
     }
 }
