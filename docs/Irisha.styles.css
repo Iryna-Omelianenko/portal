@@ -36,7 +36,7 @@ header[b-89e95tidmj] {
         text-overflow: ellipsis;
     }
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
     .top-row[b-89e95tidmj] {
         justify-content: space-between;
     }
@@ -46,7 +46,7 @@ header[b-89e95tidmj] {
         }
 }
 
-@media (min-width: 969px) {
+@media (min-width: 769px) {
     .page[b-89e95tidmj] {
         flex-direction: row;
     }
@@ -143,11 +143,12 @@ header[b-89e95tidmj] {
     color: white;
 }
 
-@media (min-width: 969px) {
+@media (min-width: 769px) {
     .navbar-toggler[b-fqtycvu2j8] {
         display: none;
     }
 
+   
     .collapse[b-fqtycvu2j8] {
         /* Never collapse the sidebar for wide screens */
         display: block;
@@ -157,5 +158,8 @@ header[b-89e95tidmj] {
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
+    }
+    .mobile-menu[b-fqtycvu2j8] {
+        display: none !important;
     }
 }
