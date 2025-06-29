@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Irisha</title>
     <base href="/portal/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=2906Sun-224359" />
-    <link rel="stylesheet" href="css/app.css?v=2906Sun-224359" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=2906Sun-230650" />
+    <link rel="stylesheet" href="css/app.css?v=2906Sun-230650" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="Irisha.styles.css?v=2906Sun-224359" rel="stylesheet" />
+    <link href="Irisha.styles.css?v=2906Sun-230650" rel="stylesheet" />
 </head>
-<script>
-    window.getWindowWidth = () => window.innerWidth;
 
-    window.registerResizeHandler = (dotNetHelper) => {
-        window.onresize = () => {
-            dotNetHelper.invokeMethodAsync('UpdateLayout');
-        };
-    };
-</script>
 <body>
+    <script>
+        window.getWindowWidth = () => window.innerWidth;
+
+        window.registerResizeHandler = (dotNetHelper) => {
+            window.onresize = () => {
+                dotNetHelper.invokeMethodAsync('UpdateLayout');
+            };
+        };
+    </script>
     <div id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
@@ -34,7 +35,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js?v=2906Sun-224359"></script>
+    <script src="_framework/blazor.webassembly.js?v=2906Sun-230650"></script>
 </body>
 
 </html>
