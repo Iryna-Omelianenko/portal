@@ -1,14 +1,28 @@
-.page {
-    width: 960px; 
+﻿.page {
+    width: 100%;
+    max-width: 960px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 main {
     flex: 1;
+    margin-top: 60px; /* если высота меню 60px */
+    /*height: calc(100vh - 60px);
+    overflow-y: auto;*/ /* вертикальная прокрутка именно в контенте */
+    /* Скрыть полосу прокрутки для разных браузеров */
+    /*scrollbar-width: none;*/ /* Firefox */
+    /*-ms-overflow-style: none;*/ /* IE 10+ */
 }
 
 header {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* чтобы было поверх всего */
+    /*height: 80px;*/
 }
 
 .top-row {
@@ -48,6 +62,11 @@ header {
 @media (min-width: 769px) {
     .page {
         flex-direction: row;
+    }
+    .page {
+        width: 100%;
+        padding: 0 1rem; /* немного отступов по бокам */
+        box-sizing: border-box;
     }
 
     .header {
