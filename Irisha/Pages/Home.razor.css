@@ -1,0 +1,10 @@
+﻿section {
+    scroll-margin-top: 60px; /* высота фиксированного header'а */
+    margin-top: 10px;
+    h3 {
+        text-align: center;
+        
+    }
+}
+
+   
