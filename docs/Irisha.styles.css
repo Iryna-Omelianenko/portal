@@ -1,7 +1,9 @@
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-89e95tidmj] {
-    width: 960px; 
+    width: 100%;
+    max-width: 960px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 main[b-89e95tidmj] {
@@ -61,6 +63,11 @@ header[b-89e95tidmj] {
 @media (min-width: 769px) {
     .page[b-89e95tidmj] {
         flex-direction: row;
+    }
+    .page[b-89e95tidmj] {
+        width: 100%;
+        padding: 0 1rem; /* немного отступов по бокам */
+        box-sizing: border-box;
     }
 
     .header[b-89e95tidmj] {
