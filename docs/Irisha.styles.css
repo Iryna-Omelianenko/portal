@@ -161,14 +161,7 @@ header[b-89e95tidmj] {
     background-color: rgba(255,255,255,0.1);
     color: white;
 }
-.mobile-menu[b-fqtycvu2j8] {
-    /*z-index: 1001;
-    overflow-y: auto;
-    position: fixed;*/ /* или absolute, если внутри header */
-    /*top: 60px;
-    left: 0;
-    right: 0;*/
-}
+
 @media (min-width: 769px) {
     .navbar-toggler[b-fqtycvu2j8] {
         display: none;
@@ -189,3 +182,14 @@ header[b-89e95tidmj] {
         display: none !important;
     }
 }
+/* /Pages/Home.razor.rz.scp.css */
+section[b-6th8fh1nhj] {
+    scroll-margin-top: 60px; /* высота фиксированного header'а */
+    margin-top: 10px;
+    h3 {
+        text-align: center;
+        
+    }
+}
+
+   
