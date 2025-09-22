@@ -1,0 +1,36 @@
+﻿@inject NavigationManager NavManager
+@inject IJSRuntime JS
+@inject HttpClient Http
+@using System.Globalization
+
+@code {
+    [Parameter] public string FileName { get; set; } = default!;
+    private string? htmlContent;
+    private string culture = "en"; // default fallback
+
+    protected override async Task OnInitializedAsync()
+    {
+        culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+        var url = $"Locales/{culture}/{FileName}";
+
+        try
+        {
+            htmlContent = await Http.GetStringAsync(url);
+        }
+        catch (HttpRequestException)
+        {
+            htmlContent = $"<!-- ❌ Файл не найден: {url} -->";
+        }
+    }
+
+    
+}
+
+@if (htmlContent is null)
+{
+    <p><em>Loading content…</em></p>
+}
+else
+{
+    @((MarkupString)htmlContent)
+}

@@ -1,6 +1,7 @@
 ﻿@inject IJSRuntime JS
 @inject HttpClient Http
-
+@using System.Globalization
+@using Properties;
 <div class="navbar navbar-expand-md navbar-dark px-4">
     <div class="container-fluid d-flex align-items-center justify-content-between w-100">
 
@@ -9,11 +10,11 @@
             <button class="navbar-toggler me-2" type="button" @onclick="ToggleNavMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand m-0 px-2" href="">Iryna Omelianenko</a>
+            <a class="navbar-brand m-0 px-2" href="">@Resources.Name</a>
         </div>
 
         <!-- Десктопная версия: только имя -->
-        <a class="navbar-brand d-none d-md-block m-0" href="">Iryna Omelianenko</a>
+        <a class="navbar-brand d-none d-md-block m-0" href="">@Resources.Name</a>
 
         <!-- Центр: пункты меню -->
         <div class="main-menu position-absolute start-50 translate-middle-x d-none d-md-block">
@@ -22,7 +23,7 @@
                 {
                     foreach (var item in menuItems)
                     {
-                        <a class="nav-link" href="@item.Href">@item.Title</a>
+                        <a class="nav-link" href="@item.Href">@Resources.ResourceManager.GetString(item.Title, Resources.Culture)</a>
                     }
                 }
                 @* <a class="nav-link px-2" href="/">
@@ -47,19 +48,29 @@
                 {
                     foreach (var item in menuItems)
                     {
-                        <a class="nav-link" href="@item.Href" @onclick="CloseMenu">@item.Title</a>
+                        <a class="nav-link" href="@item.Href" @onclick="CloseMenu">@Resources.ResourceManager.GetString(item.Title, Resources.Culture)</a>
                     }
                 }
             </nav>
         </div>
-        <!-- Правая часть: пока пустая -->
-        <div class="d-none d-md-block" style="width: 40px;"></div>
+        <!-- Правая часть: вибор локали -->
+       
+        <div class="language-switcher ms-auto">
+            <select class="form-select form-select-sm" @onchange="OnLanguageChanged" value="@currentCulture">
+                <option value="ru">RU</option>
+                <option value="uk">UA</option>
+                <option value="en">EN</option>
+            </select>
+        </div>
     </div>
 </div>
 
 @code {
+    [Inject] public NavigationManager Navigation { get; set; } = default!;
     private bool collapseNavMenu = true;
     private bool isMobile = false;
+    private string currentCulture = "ru"; // значение по умолчанию
+
 
     private DotNetObjectReference<NavMenu>? objRef;
 
@@ -83,6 +94,40 @@
     protected override async Task OnInitializedAsync()
     {
         menuItems = await Http.GetFromJsonAsync<List<MenuItem>>("data/MenuItemsData.json");
+
+       // var cultureFromStorage = await JS.InvokeAsync<string>("localStorage.getItem", "preferredCulture");
+       // if (!string.IsNullOrEmpty(cultureFromStorage))
+       // {
+            currentCulture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName; ;
+            // var c = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            // if (currentCulture != CultureInfo.CurrentUICulture.TwoLetterISOLanguageName)
+            // {
+            //     ChangeCulture(currentCulture);
+            // }
+       // }
+    }
+
+    private void ChangeCulture(string culture)
+    {
+        // Меняем культуру на лету
+        var cultureInfo = new CultureInfo(culture);
+        CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
+        // Принудительно обновляем интерфейс (вариант 1: навигация без перезагрузки)
+        Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
+    }
+
+    private async Task OnLanguageChanged(ChangeEventArgs e)
+    {
+        var selectedCulture = e.Value?.ToString() ?? "ru";
+        currentCulture = selectedCulture;
+
+        // Сохраняем культуру в localStorage (по желанию)
+        await JS.InvokeVoidAsync("localStorage.setItem", "preferredCulture", currentCulture);
+
+        ChangeCulture(selectedCulture);
+        StateHasChanged();
     }
 
     [JSInvokable]

@@ -1,26 +1,26 @@
 ﻿[
   {
-    "title": "Home",
+    "title": "MenuHome",
     "href": "#home"
   },
   {
-    "title": "About",
+    "title": "MenuAbout",
     "href": "#about"
   },
   {
-    "title": "Services",
+    "title": "MenuServices",
     "href": "#services"
   },
   {
-    "title": "Gallery",
+    "title": "MenuGallery",
     "href": "#gallery"
   },
   {
-    "title": "Contact",
+    "title": "MenuContact",
     "href": "#contact"
   },
   {
-    "title": "Testimonials",
+    "title": "MenuTestimonials",
     "href": "#testimonials"
   }
 ]
